@@ -1,7 +1,8 @@
 // playwright.config.ts
 import { PlaywrightTestConfig, devices } from '@playwright/test';
+import { TestOptions } from './my-test';
 
-const config: PlaywrightTestConfig = {
+const config: PlaywrightTestConfig<TestOptions>= {
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   use: {
