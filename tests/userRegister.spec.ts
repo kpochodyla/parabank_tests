@@ -5,9 +5,7 @@ const numberOfDigits = 1000000;
 
 test.describe('User registration', () => {
     test('Register new user', async ({ page, user}) =>{
-        
         const username = user.username + String(Math.floor(Math.random() * numberOfDigits))
-        console.log(username)
         await page.goto('/');
         const loginPanel = await page.locator('id=loginPanel');
         await loginPanel.locator('text=Register').click();
@@ -32,9 +30,7 @@ test.describe('User registration', () => {
             )
     });
     test('Register new user without phone number', async ({ page, user}) =>{
-        
         const username = user.username + String(Math.floor(Math.random() * numberOfDigits))
-        console.log(username)
         await page.goto('/');
         const loginPanel = await page.locator('id=loginPanel');
         await loginPanel.locator('text=Register').click();
@@ -107,7 +103,6 @@ test.describe('User registration without required fields', () => {
         await loginPanel.locator('text=Register').click();
         await page.locator('[id="customer.firstName"]').type(user.firstName);
         await page.locator('[id="customer.lastName"]').type(user.lastName);
-        // await page.locator('[id="customer.address.street"]').type(user.address);
         await page.locator('[id="customer.address.city"]').type(user.city);
         await page.locator('[id="customer.address.state"]').type(user.state);
         await page.locator('[id="customer.address.zipCode"]').type(user.zipCode);
@@ -130,7 +125,6 @@ test.describe('User registration without required fields', () => {
         await page.locator('[id="customer.firstName"]').type(user.firstName);
         await page.locator('[id="customer.lastName"]').type(user.lastName);
         await page.locator('[id="customer.address.street"]').type(user.address);
-        // await page.locator('[id="customer.address.city"]').type(user.city);
         await page.locator('[id="customer.address.state"]').type(user.state);
         await page.locator('[id="customer.address.zipCode"]').type(user.zipCode);
         await page.locator('[id="customer.phoneNumber"]').type(user.phoneNumber);
@@ -153,7 +147,6 @@ test.describe('User registration without required fields', () => {
         await page.locator('[id="customer.lastName"]').type(user.lastName);
         await page.locator('[id="customer.address.street"]').type(user.address);
         await page.locator('[id="customer.address.city"]').type(user.city);
-        // await page.locator('[id="customer.address.state"]').type(user.state);
         await page.locator('[id="customer.address.zipCode"]').type(user.zipCode);
         await page.locator('[id="customer.phoneNumber"]').type(user.phoneNumber);
         await page.locator('[id="customer.ssn"]').type(user.SSN);
@@ -176,7 +169,6 @@ test.describe('User registration without required fields', () => {
         await page.locator('[id="customer.address.street"]').type(user.address);
         await page.locator('[id="customer.address.city"]').type(user.city);
         await page.locator('[id="customer.address.state"]').type(user.state);
-        // await page.locator('[id="customer.address.zipCode"]').type(user.zipCode);
         await page.locator('[id="customer.phoneNumber"]').type(user.phoneNumber);
         await page.locator('[id="customer.ssn"]').type(user.SSN);
 
@@ -200,7 +192,6 @@ test.describe('User registration without required fields', () => {
         await page.locator('[id="customer.address.state"]').type(user.state);
         await page.locator('[id="customer.address.zipCode"]').type(user.zipCode);
         await page.locator('[id="customer.phoneNumber"]').type(user.phoneNumber);
-        // await page.locator('[id="customer.ssn"]').type(user.SSN);
 
         await page.locator('[id="customer.username"]').type(user.username);
         await page.locator('[id="customer.password"]').type(user.password);

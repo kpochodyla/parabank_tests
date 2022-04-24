@@ -32,5 +32,4 @@ export const test = base.extend<TestOptions>({
             'password': 'kppass'
         }, 
         { option: true }],
-
 });
