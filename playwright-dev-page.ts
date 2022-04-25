@@ -3,7 +3,7 @@ import { expect, Page, Locator } from '@playwright/test';
 export class BankPage {
   readonly page: Page;
   readonly openNewAccount: Locator;
-  readonly accountsOverwie: Locator;
+  readonly accountsOverview: Locator;
   readonly transferFunds: Locator;
   readonly billPay: Locator;
   readonly findTransactions: Locator;
@@ -15,7 +15,7 @@ export class BankPage {
     this.page = page;
     const leftPanel = this.page.locator('[id="leftPanel"]');
     this.openNewAccount = leftPanel.locator('text=Open New Account');
-    this.accountsOverwie = leftPanel.locator('text=Accounts Overview');
+    this.accountsOverview = leftPanel.locator('text=Accounts Overview');
     this.transferFunds = leftPanel.locator('text=Transfer Funds');
     this.billPay = leftPanel.locator('text=Bill Pay');
     this.findTransactions = leftPanel.locator('text=Find Transactions');
@@ -30,7 +30,7 @@ export class BankPage {
     await this.page.locator('input[name="password"]').type(user.password);
     await this.page.locator('text="Log In"').click();
     await expect(this.openNewAccount).toBeVisible();
-    await expect(this.accountsOverwie).toBeVisible();
+    await expect(this.accountsOverview).toBeVisible();
     await expect(this.transferFunds).toBeVisible();
     await expect(this.billPay).toBeVisible();
     await expect(this.findTransactions).toBeVisible();
